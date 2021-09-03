@@ -68,9 +68,10 @@
         flex-direction: row;
         align-items: center;
         padding: 8px 16px;
-        background: #503e9d;
+        background: #F7F7F7;
         border-radius: 8px;
         cursor: pointer;
+        color: #626264;
     }
     .selectedCategory {
         background: #503e9d;
@@ -83,8 +84,13 @@
     font-size: 24px;
     line-height: 32px;
     color: #182135;
+    margin-top: 38px;
+    margin-bottom: 32px;
 }
 .menuListWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
     .cardWrapper {
         .coverImage {
             width: 336px;

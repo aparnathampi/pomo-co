@@ -2,8 +2,45 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import classes from './styles.scss';
 
+const menu = [{
+  itemName: 'Chicken Grill',
+  itemCategory: 'Baked',
+  itemPhoto: '/assets/png/Image.png',
+  itemCost: '£19.80'
+},
+{
+  itemName: 'Char-Broiled Chicken Shish',
+  itemCategory: 'Hot Dish',
+  itemPhoto: '/assets/png/Image-2.png',
+  itemCost: '£22.89'
+},
+{
+  itemName: 'Natural Vegetable Rice',
+  itemCategory: 'Sweet',
+  itemPhoto: '/assets/png/Image-3.png',
+  itemCost: '£2.11'
+},
+{
+  itemName: 'Chicken Grill',
+  itemCategory: 'Sweet',
+  itemPhoto: '/assets/png/Image.png',
+  itemCost: '£19.80'
+},
+{
+  itemName: 'Char-Broiled Chicken Shish',
+  itemCategory: 'Hot Dish',
+  itemPhoto: '/assets/png/Image-2.png',
+  itemCost: '£22.89'
+},
+{
+  itemName: 'Natural Vegetable Rice',
+  itemCategory: 'Hot Dish',
+  itemPhoto: '/assets/png/Image-3.png',
+  itemCost: '£2.11'
+}];
+
 const RestaurantDetail = (props) => {
-  const { fetchResturantDetails, restaurantDetails, fetchMenu, menu } = props;
+  const { fetchResturantDetails, restaurantDetails, fetchMenu } = props;
   const { id } = useParams();
   useEffect(() => {
     fetchResturantDetails(id);
@@ -11,16 +48,31 @@ const RestaurantDetail = (props) => {
 
   const [categories, setCategories] = useState([]);
   const [selected, setSelected] = useState('');
+  const [menuData, setMenuData] = useState(menu);
+  useEffect(() => {
+    if (selected) {
+      const tempMenu = menu.filter((item) => item.itemCategory === selected);
+      setMenuData(tempMenu);
+    } else setMenuData(menu);
+  }, [selected]);
+  useEffect(() => {
+    if (menu) {
+      setMenuData(menu);
+    }
+  }, [menu]);
+
   let categoryArray = [];
+  let tempCategArray = [];
   useEffect(() => {
     if (menu && menu.length > 0) {
-      menu.forEach((item) => {
-        categoryArray = [...categoryArray, ...JSON.parse(item.itemCategory)];
-      });
+      categoryArray = menu.map((item) => item.itemCategory);
       const categorySet = new Set(categoryArray);
-      categoryArray = Array.from(categorySet);
+      const categoryArraySet = Array.from(categorySet);
+      tempCategArray = categoryArraySet.map((item) => (
+        { item, count: categoryArray.reduce((n, x) => n + (x === item), 0) }
+      ));
     }
-    setCategories(categoryArray);
+    setCategories(tempCategArray);
   }, [menu]);
 
   useEffect(() => {
@@ -70,26 +122,31 @@ const RestaurantDetail = (props) => {
           <div className={classes.separatorWrapper}>
             <div className={classes.separator} />
           </div>
-          {menu && menu.length > 0 && (
+          {menuData && menuData.length > 0 && (
             <>
               <div className={classes.menuCategoryWrapper}>
-                <div className={`${classes.category} ${selected === '' ? classes.selectedCategory : ''}`}>All</div>
-)
+                <div
+                  role="presentation"
+                  onClick={() => setSelected('')}
+                  className={`${classes.category} ${selected === '' ? classes.selectedCategory : ''}`}
+                >
+All
+                </div>
                 {categories && categories.map((category) => (
                   <div
                     role="presentation"
-                    onClick={() => setSelected(category)}
-                    className={`${classes.category} ${selected === category ? classes.selectedCategory : ''}`}
+                    onClick={() => setSelected(category.item)}
+                    className={`${classes.category} ${selected === category.item ? classes.selectedCategory : ''}`}
                   >
-                    {category}
+                    {`${category.item} ${category.count > 0 && `(${category.count})`}`}
                   </div>))}
               </div>
               <div className={classes.menuHeading}>Menu</div>
-              {menu && menu.map((item) => (
-                <div className={classes.menuListWrapper}>
-                  {renderMenuItem(item)}
-                </div>
-              ))}
+              <div className={classes.menuListWrapper}>
+                {menuData && menuData.map((item) => (
+                  renderMenuItem(item)
+                ))}
+              </div>
             </>
           )}
         </>)}
