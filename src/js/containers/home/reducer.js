@@ -42,7 +42,7 @@ export default (state = defaultState, action) => {
       return Immutable.merge(state, { allRestaurantsLoading: false, allRestaurantsError: null });
 
     case RESTAURANT_DETAILS_FETCH_REQUEST:
-      return Immutable.merge(state, { restaurantDetailsLoading: true });
+      return Immutable.merge(state, { restaurantDetailsLoading: true, restaurantDetails: [] });
 
     case RESTAURANT_DETAILS_FETCH_SUCCESS:
       return Immutable.merge(state, {
