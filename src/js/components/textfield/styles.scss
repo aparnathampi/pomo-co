@@ -1,0 +1,35 @@
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: 11px;
+    border: 1px solid #DFDFDF;
+    caret-color: #007AFF;
+    padding-left: 20px;
+    &:focus{
+      border: 1px solid #007AFF;
+    }
+    .adornment {
+      background: #fafafa;
+    }
+    .label {
+      font-size: 18px;
+      line-height: 18px;
+      color: #4F4F4F;
+      margin-bottom: 15px;
+    }
+    input {
+      outline: none !important;
+      outline-offset: 0px !important; 
+      outline-width: 0px !important;
+      padding-left: 20px;
+      font-size: 16px;
+      line-height: 18px;
+      height: 48px;
+      width: 350px;
+      background: #FAFAFA;
+      border-radius: 11px;
+      border: none !important;
+    }
+  }
+  

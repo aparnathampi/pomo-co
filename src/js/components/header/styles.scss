@@ -1,0 +1,66 @@
+.headerWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 32px;
+    margin-bottom: 48px;
+    .backButton {
+        background: #503E9D;
+border-radius: 10px;
+width: 48px;
+height: 48px;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+    }
+    .rightWrapper {
+        display: flex;
+        align-items: center;
+    .restoWrapper {
+        margin-right: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .restoText {
+            margin: 0 44px 0 12px;
+            font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 24px;
+color: #182135;
+        }
+    }
+    .userExpandIconWrapper {
+        display: flex;
+        flex-direction: column;
+        .upArrow {
+            margin-bottom: 4px;
+        }
+
+    }
+    .filter {
+        margin: 0 16px;
+        background: #503E9D;
+border-radius: 10px;
+width: 48px;
+height: 48px;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+    }
+    .cart {
+        background: #FB6D3A;
+        border-radius: 10px;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+}
+}

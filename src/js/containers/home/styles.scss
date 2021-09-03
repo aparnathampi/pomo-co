@@ -1,0 +1,38 @@
+.homeWrapper {
+   
+    .mainHeading {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+        color: #182135;
+        margin-bottom: 32px;
+    }
+    .subHeading {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+        color: #182135;
+        margin-top: 48px;
+        margin-bottom: 32px;
+    }
+    .restaurantListingWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 28px;
+    }
+    .categoryListWrapper {
+        display: flex;
+        align-items: center;
+        .categoryWrapper {
+            display: flex;
+            align-items: center;
+            margin-right: 48px;
+            cursor: pointer;
+            img {
+                margin-right: 15px;
+            }
+        }
+    }
+}

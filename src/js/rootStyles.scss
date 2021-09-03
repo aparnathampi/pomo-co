@@ -1,0 +1,28 @@
+@import './theme/variables.scss';
+
+body {
+  font-family: $fontFamily;
+}
+.container {
+  display: flex;
+  .background{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    .wrapper {
+    margin-left: 332px;
+    width: 100%;
+    margin-right: 28px;
+    .headerWrapper {
+        width: 100%;
+    }
+  }
+  }
+  .blurfilter {
+
+    filter: blur(4px);
+  }
+  .foreground {
+  backdrop-filter: blur(10px);
+  }
+}

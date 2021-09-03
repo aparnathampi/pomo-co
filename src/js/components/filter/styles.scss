@@ -1,0 +1,85 @@
+.filterWrapper {
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    box-sizing: border-box;
+    height: 100vh;
+    background: #FFFFFF;
+    border-radius: 24px 0px 0px 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 40px 32px 32px 32px;
+.topWrapper {
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 32px;
+color: #182135;
+margin-bottom: 56px;
+}
+.filterGroup {
+    .filterHeading {
+        font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 32px;
+color: #182135;
+margin-bottom: 32px;
+    }
+    .openWrapper {
+        display: flex;
+        align-items: center;
+        margin: 32px 0px 48px 0px;
+        color: #626264;
+        cursor: pointer;
+        .iconWrapper {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 48px;
+height: 48px;
+background: #F7F7F7;
+border-radius: 9px;
+margin-right: 16px;
+        }
+        .sortActive {
+            background: rgba(251, 109, 58, 0.1);
+        }
+    }
+    .filterItemWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        .filterItem {
+            background: #F7F7F7;
+border-radius: 6px;
+padding: 8px 12px;
+cursor: pointer;
+color: #626264;
+cursor: pointer;
+        }
+        .selectedFilter{
+            background: rgba(251, 109, 58, 0.1);
+            color: #FB6D3A
+        }
+    }
+    .seeMore {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+color: #FB6D3A;
+margin-top: 24px;
+    }
+}
+}
+}
